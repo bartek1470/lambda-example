@@ -1,0 +1,62 @@
+[versions]
+kotlin = "2.0.20"
+springCloud = "2023.0.3"
+awsLambdaEvents = "3.14.0"
+awsLambdaCore = "1.2.3"
+logstashLogbackEncoder = "8.0"
+jetbrainsAnnotations = "25.0.0"
+apacheCommons = "3.17.0"
+guava = "33.3.1-jre"
+springdoc = "2.6.0"
+mapstruct = "1.6.2"
+jackson = "2.18.0"
+kotlinLogging = "7.0.0"
+logback = "1.5.9"
+slf4j = "2.0.16"
+postgres = "42.7.4"
+awsSdkBom = "2.21.20"
+
+[libraries]
+apacheCommonsLang = { group = "org.apache.commons", name = "commons-lang3", version.ref = "apacheCommons" }
+aws-lambdaJavaCore = { group = "com.amazonaws", name = "aws-lambda-java-core", version.ref = "awsLambdaCore" }
+aws-lambdaJavaEvents = { group = "com.amazonaws", name = "aws-lambda-java-events", version.ref = "awsLambdaEvents" }
+aws-sdk-bom = { group = "software.amazon.awssdk", name = "bom", version.ref = "awsSdkBom" }
+aws-sdk-rds = { group = "software.amazon.awssdk", name = "rds" }
+aws-sdk-rdsdata = { group = "software.amazon.awssdk", name = "rdsdata" }
+aws-sdk-secretsmanager = { group = "software.amazon.awssdk", name = "secretsmanager" }
+aws-sdk-sqs = { group = "software.amazon.awssdk", name = "sqs" }
+aws-xrayRecorder = { group = "com.amazonaws", name = "aws-xray-recorder-sdk-aws-sdk-v2" }
+guava = { group = "com.google.guava", name = "guava", version.ref = "guava" }
+jacksonDatatypeJsr310 = { group = "com.fasterxml.jackson.datatype", name = "jackson-datatype-jsr310", version.ref = "jackson" }
+jetbrainsAnnotations = { group = "org.jetbrains", name = "annotations", version.ref = "jetbrainsAnnotations" }
+junitPlatformLauncher = { group = "org.junit.platform", name = "junit-platform-launcher" }
+kotlin-logging-jvm = { group = "io.github.oshai", name = "kotlin-logging-jvm", version.ref = "kotlinLogging" }
+kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect" }
+kotlin-test-junit = { group = "org.jetbrains.kotlin", name = "kotlin-test-junit5" }
+logback-classic = { group = "ch.qos.logback", name = "logback-classic", version.ref = "logback" }
+logback-core = { group = "ch.qos.logback", name = "logback-core", version.ref = "logback" }
+logstashLogbackEncoder = { group = "net.logstash.logback", name = "logstash-logback-encoder", version.ref = "logstashLogbackEncoder" }
+lombok = { group = "org.projectlombok", name = "lombok" }
+mapstruct = { group = "org.mapstruct", name = "mapstruct", version.ref = "mapstruct" }
+mapstructProcessor = { group = "org.mapstruct", name = "mapstruct-processor", version.ref = "mapstruct" }
+postgres = { group = "org.postgresql", name = "postgresql", version.ref = "postgres" }
+slf4j-api = { group = "org.slf4j", name = "slf4j-api", version.ref = "slf4j" }
+springBootStarter = { group = "org.springframework.boot", name = "spring-boot-starter" }
+springBootStarterSecurity = { group = "org.springframework.boot", name = "spring-boot-starter-security" }
+springBootStarterTest = { group = "org.springframework.boot", name = "spring-boot-starter-test" }
+springBootStarterValidation = { group = "org.springframework.boot", name = "spring-boot-starter-validation" }
+springBootStarterWeb = { group = "org.springframework.boot", name = "spring-boot-starter-web" }
+springBootStarterWebflux = { group = "org.springframework.boot", name = "spring-boot-starter-webflux" }
+springCloudDependencies = { group = "org.springframework.cloud", name = "spring-cloud-dependencies", version.ref = "springCloud" }
+springCloudFunctionAdapterAws = { group = "org.springframework.cloud", name = "spring-cloud-function-adapter-aws" }
+springCloudFunctionContext = { group = "org.springframework.cloud", name = "spring-cloud-function-context" }
+springCloudStarterContractStubRunner = { group = "org.springframework.cloud", name = "spring-cloud-starter-contract-stub-runner" }
+springdocOpenapiStarterWebmvcUi = { group = "org.springdoc", name = "springdoc-openapi-starter-webmvc-ui", version.ref = "springdoc" }
+
+[plugins]
+jib = { id = "com.google.cloud.tools.jib", version = "3.4.3" }
+kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+shadowJar = { id = "com.github.johnrengelman.shadow", version = "8.1.1" }
+spotless = { id = "com.diffplug.spotless", version = "6.25.0" }
+springBoot = { id = "org.springframework.boot", version = "3.3.4" }
+springDependencyManagement = { id = "io.spring.dependency-management", version = "1.1.6" }
