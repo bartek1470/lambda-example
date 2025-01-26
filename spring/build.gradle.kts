@@ -4,6 +4,7 @@ plugins {
     id("org.springframework.boot") version "3.3.4"
     id("io.spring.dependency-management") version "1.1.6"
     alias(libs.plugins.spotless)
+    `maven-publish`
 }
 
 group = "pl.bartek.lambda"
@@ -80,4 +81,44 @@ spotless {
     kotlin {
         ktlint()
     }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("lambda") {
+            from(components["java"])
+//            artifact(packageLambdaLayer) {
+//                classifier = "lambda-layer"
+//                extension = "zip"
+//            }
+        }
+        repositories {
+            maven {
+                name = "s3"
+                val workspace = "whoami".runCommand()
+                val release = project.hasProperty("release")
+                url = if (release) {
+                    uri("s3://dev-example-artifacts")
+                } else {
+                    logger.quiet("Publishing to bucket of '$workspace' workspace")
+                    uri("s3://$workspace-dev-example-artifacts")
+                }
+                credentials(AwsCredentials::class) {
+                    accessKey = System.getenv("AWS_ACCESS_KEY_ID")
+                    secretKey = System.getenv("AWS_SECRET_ACCESS_KEY")
+                    sessionToken = System.getenv("AWS_SESSION_TOKEN")
+                }
+            }
+        }
+    }
+}
+
+fun String.runCommand(): String {
+    val process = ProcessBuilder(*split(" ").toTypedArray())
+        .redirectOutput(ProcessBuilder.Redirect.PIPE)
+        .redirectError(ProcessBuilder.Redirect.PIPE)
+        .start()
+
+    process.waitFor(5, TimeUnit.SECONDS)
+    return process.inputStream.bufferedReader().use { it.readText() }.trim()
 }
