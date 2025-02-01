@@ -6,3 +6,4 @@ rootProject.name = "lambda-example"
 
 includeBuild("simple")
 includeBuild("spring")
+includeBuild("ktnative")

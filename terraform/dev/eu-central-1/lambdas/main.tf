@@ -41,3 +41,12 @@ module "simple_layer" {
   name             = "simple-layer"
   runtimes         = ["java21"]
 }
+
+module "native_lambda" {
+  source           = "../../../modules/lambda"
+  name             = "native-lambda"
+  code_filepath    = abspath("${path.root}/../../../../ktnative/build/distributions/ktnative.zip")
+  handler          = "myhandler"
+  artifacts_bucket = data.terraform_remote_state.shared.outputs.artifacts_bucket
+  runtime          = "provided.al2023"
+}

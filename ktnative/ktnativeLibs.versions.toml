@@ -1,0 +1,17 @@
+[versions]
+kotlin = "2.1.0"
+kotlinxSerialization = "1.8.0"
+ktor = "3.0.3"
+kotlinLogging = "7.0.3"
+
+[libraries]
+kotlinxSerializationJson = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+ktor-client-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
+ktor-client-cio = { group = "io.ktor", name = "ktor-client-cio", version.ref = "ktor" }
+kotlin-logging-common = { group = "io.github.oshai", name = "kotlin-logging", version.ref = "kotlinLogging" }
+kotlin-logging-linux = { group = "io.github.oshai", name = "kotlin-logging-linuxx64", version.ref = "kotlinLogging" }
+
+[plugins]
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+spotless = { id = "com.diffplug.spotless", version = "6.25.0" }
