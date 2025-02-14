@@ -10,5 +10,5 @@ tasks.create("spotlessCheck") {
 
 tasks.create("clean") {
     group = "build"
-    setDependsOn(gradle.includedBuilds.map { it.task(":spotlessCheck") })
+    setDependsOn(gradle.includedBuilds.map { it.task(":clean") })
 }
